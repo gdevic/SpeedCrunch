@@ -30,6 +30,15 @@ add_compile_options(-Wall -pedantic)
 
 if(APPLE)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -stdlib=libc++")
+
+    option(UNIVERSAL_SPEEDCRUNCH "Build universal binary for both Intel and Apple Silicon" OFF)
+    if(UNIVERSAL_SPEEDCRUNCH)
+        set(CMAKE_OSX_ARCHITECTURES "x86_64;arm64" CACHE STRING " architectures" FORCE)
+    endif()
+
+    if(NOT CMAKE_OSX_DEPLOYMENT_TARGET)
+        set(CMAKE_OSX_DEPLOYMENT_TARGET "10.14" CACHE STRING "Minimum macOS version")
+    endif()
 endif()
 
 set(speedcrunch_VERSION "master")

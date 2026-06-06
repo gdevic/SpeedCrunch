@@ -66,4 +66,9 @@ public:
     double toDouble() const;
 };
 
+inline unsigned int qHash(const Rational& r)
+{
+    return qHash(r.numerator()) ^ qHash(r.denominator());
+}
+
 #endif // RATIONAL_H

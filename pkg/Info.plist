@@ -18,5 +18,7 @@
 	<string>org.speedcrunch</string>
 	<key>CFBundleShortVersionString</key>
 	<string>0.12</string>
+	<key>LSMinimumSystemVersion</key>
+	<string>10.14</string>
 </dict>
 </plist>
